@@ -66,12 +66,19 @@ void CreateTriangleData()
 		float r, g, b;
 	};
 	// create the actual data in plane Z = 0
-	TriangleVertex triangleVertices[3] = 
+	TriangleVertex triangleVertices[4] =
 	{
-		// pos and color for each vertex
-		{ 0.0f, 0.5f, 0.0f,	1.0f, 0.0f, 0.0f },
-		{ 0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f },
-		{ -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f }
+		-0.8f, 0.8f, 0.0f,	//v0 pos
+		0.0f, 0.0f, 0.0f,	//v0 color
+
+		0.8f, 0.8f, 0.0f,	//v1
+		1.0f, 0.0f, 0.0f,	//v1 color
+
+		-0.8f, -0.8f, 0.0f,	//v2
+		0.0f, 1.0f, 0.0f,	//v2 color
+
+		0.8f, -0.8f, 0.0f,	//v3
+		1.0f, 1.0f, 0.0f,	//v3 color
 	};
 
 	// Vertex Array Object (VAO) 
@@ -118,7 +125,7 @@ void Render()
 	glBindVertexArray(gVertexAttribute);
 	
 	// draw 3 vertices starting from index 0 in the vertex array currently bound (VAO), with current in-use shader
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_TRIANGLES, 0, 4);
 }
 
 int WINAPI wWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow )
